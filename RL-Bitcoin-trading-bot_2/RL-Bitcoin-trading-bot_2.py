@@ -28,10 +28,10 @@ class CustomEnv:
         self.action_space = np.array([0, 1, 2])
 
         # Orders history contains the balance, net_worth, crypto_bought, crypto_sold, crypto_held values for the last lookback_window_size steps
-        self.orders_history = deque(maxlen=self.lookback_window_size)
+        self.orders_history = deque(maxlen=self.lookback_window_size) #สร้าง array ขนานเท่ากับ ชุดข้อมูลที่จะมอง (array แบบเพิ่มตัวใหม่-ลบตัวเก่า)
         
         # Market history contains the OHCL values for the last lookback_window_size prices
-        self.market_history = deque(maxlen=self.lookback_window_size)
+        self.market_history = deque(maxlen=self.lookback_window_size) #สร้าง array ขนานเท่ากับ ชุดข้อมูลที่จะมอง (array แบบเพิ่มตัวใหม่-ลบตัวเก่า)
 
         # State size contains Market+Orders history for the last lookback_window_size steps
         self.state_size = (self.lookback_window_size, 10)
